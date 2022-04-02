@@ -27,28 +27,6 @@
 #include "ksyscall.h"
 
 #define MaxFileLength 32
-//----------------------------------------------------------------------
-// ExceptionHandler
-// 	Entry point into the Nachos kernel.  Called when a user program
-//	is executing, and either does a syscall, or generates an addressing
-//	or arithmetic exception.
-//
-// 	For system calls, the following is the calling convention:
-//
-// 	system call code -- r2
-//		arg1 -- r4
-//		arg2 -- r5
-//		arg3 -- r6
-//		arg4 -- r7
-//
-//	The result of the system call, if any, must be put back into r2. 
-//
-// If you are handling a system call, don't forget to increment the pc
-// before returning. (Or else you'll loop making the same system call forever!)
-//
-//	"which" is the kind of exception.  The list of possible exceptions 
-//	is in machine.h.
-//----------------------------------------------------------------------
 
  char* stringUser2System(int addr, int convert_length = -1) {
     int length = 0;
@@ -85,8 +63,6 @@ void StringSys2User(char* str, int addr, int convert_length = -1) {
 }
 
 void increaseProgramCounter(){
-	
-	
 	/* set previous programm counter (debugging only)*/
 	kernel->machine->WriteRegister(PrevPCReg, kernel->machine->ReadRegister(PCReg));
 
@@ -97,20 +73,30 @@ void increaseProgramCounter(){
 	kernel->machine->WriteRegister(NextPCReg, kernel->machine->ReadRegister(PCReg)+4);
 			
 }
-void handle_SC_ReadNum() {
-    int result = SysReadNum();
-	kernel->machine->WriteRegister(2, result);
-	return increaseProgramCounter();
-}
 
-void handle_SC_PrintNum() {
-    int character = kernel->machine->ReadRegister(4);
-	SysPrintNum(character);
-	return increaseProgramCounter();
-}
-
-void
-ExceptionHandler(ExceptionType which)
+//----------------------------------------------------------------------
+// ExceptionHandler
+// 	Entry point into the Nachos kernel.  Called when a user program
+//	is executing, and either does a syscall, or generates an addressing
+//	or arithmetic exception.
+//
+// 	For system calls, the following is the calling convention:
+//
+// 	system call code -- r2
+//		arg1 -- r4
+//		arg2 -- r5
+//		arg3 -- r6
+//		arg4 -- r7
+//
+//	The result of the system call, if any, must be put back into r2. 
+//
+// If you are handling a system call, don't forget to increment the pc
+// before returning. (Or else you'll loop making the same system call forever!)
+//
+//	"which" is the kind of exception.  The list of possible exceptions 
+//	is in machine.h.
+//----------------------------------------------------------------------
+void ExceptionHandler(ExceptionType which)
 {
     int type = kernel->machine->ReadRegister(2);
 

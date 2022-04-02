@@ -9,13 +9,13 @@ int main(){
 	int i;
 	int sourceFileId, desFileId;
 
-    PrintString("Type source file (use ctrl+D to end typing):\n");
+    PrintString("Type source file (use Enter to end typing):\n");
 	ReadString(sourceFile,2);
 	//PrintChar('\n');
 	//PrintString(sourceFile);
 	
 
-	PrintString("Type destination file (use ctrl+D to end typing):\n");
+	PrintString("Type destination file (use Enter to end typing):\n");
 	ReadString(desFile,5);
 	//PrintChar('\n');
 	//PrintString(desFile);

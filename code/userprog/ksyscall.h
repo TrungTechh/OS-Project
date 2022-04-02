@@ -18,11 +18,6 @@
 #define STRINGLENGTH 255
 #define ENDSTRING '\0'
 
-#define LF ((char)10)
-#define CR ((char)13)
-#define TAB ((char)9)
-#define SPACE ((char)' ')
-
 /* A buffer to read and write number */
 #define MAX_NUM_LENGTH 11
 char _numberBuffer[MAX_NUM_LENGTH + 2];
@@ -124,9 +119,11 @@ int SysReadNum() {
 
     if (compareNumAndString(num, _numberBuffer))
         return num;
-    else
+    else{ 
         DEBUG(dbgSys,
               "Expected int32 number but " << _numberBuffer << " found");
+	return 0;
+    }
 
     return num;
 }

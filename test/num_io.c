@@ -1,6 +1,11 @@
 #include "syscall.h"
 
 int main() { 
-	PrintNum(ReadNum()); 
+	int num;
+	PrintString("Enter number\n");
+	num = ReadNum();
+	PrintString("Your number: ");
+	PrintNum(num); 
+	PrintString("\n");
 	Halt();
 }

@@ -286,6 +286,7 @@ ExceptionHandler(ExceptionType which)
     				delete[] buffer;
                     return increaseProgramCounter();
 				}
+
                 case SC_Write:
                 {
 					int virtAddr = kernel->machine->ReadRegister(4);
@@ -301,6 +302,7 @@ ExceptionHandler(ExceptionType which)
 					delete[] buffer;
                     return increaseProgramCounter();
 				}
+				
 				case SC_Seek:
                 {
 					int seekPos = kernel->machine->ReadRegister(4);

@@ -1,8 +1,8 @@
 #include "syscall.h"
 
-int main(){
+int main() {
 
-	Remove("abc");
+    Remove("abc");
 
-	Halt();
+    Halt();
 }

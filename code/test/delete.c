@@ -2,7 +2,7 @@
 
 int main() {
 
-    Remove("abc");
+    PrintNum(Remove("abc"));
 
     Halt();
 }

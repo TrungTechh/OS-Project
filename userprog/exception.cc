@@ -103,7 +103,7 @@ ExceptionHandler(ExceptionType which)
 {
     int type = kernel->machine->ReadRegister(2);
 
-    DEBUG(dbgSys, "Received Exception " << which << " type: " << type << "\n");
+    //DEBUG(dbgSys, "Received Exception " << which << " type: " << type << "\n");
 
     switch (which) {
 		case NoException:  // return control to kernel

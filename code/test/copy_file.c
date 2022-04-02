@@ -11,15 +11,11 @@ int main() {
 
     PrintString("Type source file (use Enter to end typing):\n");
     ReadString(sourceFile, 2);
-    // PrintChar('\n');
-    // PrintString(sourceFile);
+    
 
     PrintString("Type destination file (use Enter to end typing):\n");
     ReadString(desFile, 5);
-    // PrintChar('\n');
-    // PrintString(desFile);
-
-    // PrintString(sourceFile);
+    
 
     sourceFileId = Open(sourceFile);
     Read(bufferSource, 50, sourceFileId);

@@ -218,7 +218,6 @@ void ExceptionHandler(ExceptionType which)
                     return increaseProgramCounter();
 				}
 				
-				//Open for write != open for read
 				case SC_Open:
 				{
 					int virtAddr;

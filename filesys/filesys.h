@@ -55,13 +55,14 @@ class FileSystem {
         for (int i = 0; i < FILE_MAX; i++) {
             openFile[i] = NULL;
             openFileName[i] = NULL;
+	    this->Create("stdin", 0);
+	    this->Create("stdout", 0);
+	    openFileName[0] = "stdin";
+	    openFile[0] = this->Open("stdin");
+	    openFileName[1] = "stdout";
+	    openFile[1] = this->Open("stdout");
         }
-        // this->Create("stdin", 0);
-        // this->Create("stdout", 0);
-        // openFileName[0] = "stdin";
-        // openFile[0] = this->Open("stdin");
-        // openFileName[1] = "stdout";
-        // openFile[1] = this->Open("stdout");
+        
     }
     
 	~FileSystem() {
